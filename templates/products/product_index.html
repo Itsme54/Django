@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product_index</title>
+</head>
+<body>
+{% extends "product.html" %}
+
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <hr>
+    {% for product in products %}
+    <h2><a href="{% url 'product_detail' product.pk%}">{{ product.prod_name }}</a></h2>
+    <small>
+        {{ product.created_on.date }} |&nbsp; {{product.updated_on.date}}
+    </small>
+    <p>{{ product.prod_detail | slice:":400" }}...</p>
+    <p Product_weight :>{{ product.weight }}</p>
+    <p Product_price :>{{ product.price }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+</body>
+</html>
