@@ -12,15 +12,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
+            model_name='posts',
             name='status',
         ),
         migrations.RemoveField(
-            model_name='post',
+            model_name='posts',
             name='user',
         ),
         migrations.AddField(
-            model_name='post',
+            model_name='posts',
             name='title',
             field=models.CharField(default=True, max_length=255),
         ),
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('user', models.CharField(max_length=60)),
                 ('body', models.TextField()),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.post')),
+                ('posts', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.posts')),
             ],
         ),
     ]

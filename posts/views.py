@@ -8,7 +8,7 @@ def post_index(request):
     context = {
         "posts": posts,
     }
-    return render(request, "post_index.html", context)
+    return render(request, "posts/post_index.html", context)
 
 
 def post_detail(request, pk):
@@ -33,4 +33,4 @@ def post_detail(request, pk):
         "form": form,
     }
 
-    return render(request, "post_detail.html", context)
+    return render(request, "posts/post_detail.html", context)
