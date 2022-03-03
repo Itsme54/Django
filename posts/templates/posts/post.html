@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Createpost</title>
+</head>
+<body>
+     <div class="container">
+		 <div class="row">
+		 	{#% for post in posts %#}
+             	<div class="col-md-3">
+                	 <h2>Create post</h2>
+                	<form action="/createpost/", method="POST">
+					{% csrf_token %}
+                    	<div class="wrap-input100 validate-input" data-validate = "{{post.title}} is required:">
+		                	<span class="focus-input100"></span>
+							<span class="label-input100">Title :</span><br>
+							<input class="input100" type="text"  id="title" name="title">
+						</div><br>
+
+                    	<div class="wrap-input100 validate-input" data-validate = "{{post.blog_content}} is required:">
+							<span class="focus-input100"></span>
+							<span class="label-input100">Blog_content :</span><br>
+							<textarea row="60"  colo="100" id="blog_content"  name="blog_content"></textarea>
+						</div><br>
+
+
+<!--					<div class="wrap-input100 validate-input" data-validate = "imgURL is required:">-->
+<!--						<span class="focus-input100"></span>-->
+<!--						<span class="label-input100">ImageURL :</span><br>-->
+<!--						<input class=input100"  id="imgURL"  name="imgURL">-->
+<!--					</div><br>-->
+
+						<div class="container-login100-form-btn">
+							<button class="button">submit</button>&nbsp; &nbsp;
+							<button class="button">Cancel</button>&nbsp; &nbsp;
+						</div>
+					</form>
+				</div>
+			{#% endfor %#}
+		 </div>
+	 </div>
+
+
+
+<!--	 <div class="container">-->
+<!--		 <div class="row">-->
+<!--			 <div class="col-md-3">-->
+<!--				 <a href="#"></a>-->
+<!--				   <div class="card">-->
+<!--					 <div class="card-header">{{post.title}}</div>-->
+<!--					 <div class="card-body">{{post.blog_content}}</div>-->
+<!--					 <div class="card-footer mt-auto"><a href="#">-->
+<!--						 <i class="fa fa-trash fa-2x" ></i></a>-->
+<!--					 </div>-->
+<!--				   </div>-->
+<!--				 </a>-->
+<!--			 </div>-->
+<!--		 </div>-->
+<!--	 </div>-->
+<!--    			<form action="{% url 'createpost_view' %}", method="POST">-->
+<!--				{% csrf_token %}-->
+
+<!--                    <div class="wrap-input100 validate-input" data-validate = "title is required:">-->
+<!--		                <span class="focus-input100"></span>-->
+<!--						<span class="label-input100">Title :</span><br>-->
+<!--						<input class="input100" type="text"  id="title" name="title">-->
+<!--					</div><br>-->
+
+<!--                    <div class="wrap-input100 validate-input" data-validate = "blog_content is required:">-->
+<!--						<span class="focus-input100"></span>-->
+<!--						<span class="label-input100">Blog_content :</span><br>-->
+<!--						<textarea row="60"  colo="100" id="blog_content"  name="blog_content"></textarea>-->
+<!--					</div><br>-->
+
+
+<!--					<div class="wrap-input100 validate-input" data-validate = "imgURL is required:">-->
+<!--						<span class="focus-input100"></span>-->
+<!--						<span class="label-input100">ImageURL :</span><br>-->
+<!--						<input class=input100"  id="imgURL"  name="imgURL">-->
+<!--					</div><br>-->
+
+<!--					<div class="container-login100-form-btn">-->
+<!--						<button class="button">Post</button>&nbsp; &nbsp;-->
+<!--						<button class="button">Cancel</button>&nbsp; &nbsp;-->
+<!--					</div>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	 </div>-->
+
+</body>
+</html>
+
+
+
+

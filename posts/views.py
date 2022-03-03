@@ -1,6 +1,28 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from posts.models import Post, Comment
-from posts.form import CommentForm
+from posts.form import CommentForm, CreatepostForm
+
+
+def createpost_view(request):
+    if request.user.is_authenticated:
+
+        if request.method == "POST":
+            posts = Post.objects.filter(user=request.user)
+            context = {"posts": posts}
+            title = request.POST['title']
+            blog_content = request.POST['blog_content']
+
+            # url = request.POST['imgURL']
+            post = Post(title=request.POST['title'], blog_content=request.POST['blog_content'], user=request.user.id)
+            post.save()
+            messages.success(request, 'Post created successfully')
+            return render(request, 'home/index.html', context)
+        else:
+            return render(request, 'posts/post.html')
+    else:
+        return render(request, 'home/login.html')
 
 
 def post_index(request):
